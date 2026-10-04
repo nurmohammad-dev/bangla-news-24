@@ -7,41 +7,43 @@ const Header = () => {
   });
 
   return (
-    <header className="relative w-full border-t-2 border-purple-900 py-4">
-      
-      <div className="flex items-center justify-center gap-2">
-        <Image
-          src="/logo.webp"
-          alt="Bangla News 24"
-          width={40}
-          height={40}
-          priority
-        />
+    <header className="relative w-full border-b">
+      <div className="relative mx-auto max-w-7xl px-4 py-4">
 
-        <div>
-          <h1 className="text-2xl font-bold text-red-700">
-            Bangla News 24
-          </h1>
+        {/* Logo + Title */}
+        <div className="flex flex-col items-center justify-center gap-1 sm:flex-row sm:gap-2">
+          <Image
+            src="/logo.webp"
+            alt="Bangla News 24"
+            width={40}
+            height={40}
+            priority
+          />
 
-          <p className="text-xs text-neutral-500">
-            {date}
-          </p>
+          <div className="flex flex-col items-center sm:items-start">
+            <span className="text-2xl font-bold text-red-700">
+              Bangla News 24
+            </span>
+
+            <span className="text-xs text-neutral-500">
+              {date}
+            </span>
+          </div>
         </div>
+
+        {/* Right Side Buttons */}
+        <div className="absolute right-4 top-4 flex items-center gap-3">
+          <button className="btn btn-ghost text-neutral-700 hover:text-red-700">
+            সাইন ইন
+          </button>
+
+          <button className="btn bg-red-700 px-3 py-1.5 font-semibold text-white hover:bg-red-800">
+            সাইন আপ
+          </button>
+        </div>
+
+        <NavLinks />
       </div>
-
-      {/* Right Side Buttons */}
-      <div className="absolute right-10 top-4 flex items-center gap-3">
-        <button className="btn btn-ghost text-neutral-700 hover:text-red-700">
-          সাইন ইন
-        </button>
-
-        <button className="btn bg-red-700 px-3 py-1.5 font-semibold text-white hover:bg-red-800">
-          সাইন আপ
-        </button>
-      </div>
-
-      <NavLinks/>
-
     </header>
   );
 };
