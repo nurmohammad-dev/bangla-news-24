@@ -18,7 +18,7 @@ const MainNews = ({ news }: {news: Inews[]}) => {
 
   return (
     <div className="flex gap-2 p-2">
-      <div className="card bg-base-100 w-96 shadow-sm">
+      <div className="card bg-base-100 shadow-sm">
         <figure>
           <Image
             height={600}
@@ -37,12 +37,13 @@ const MainNews = ({ news }: {news: Inews[]}) => {
       <div className="grid gap-3">
         {otherNews.slice(0, 4).map((other) => (
           <div
-            className="card bg-base-100 border border-gray-300 p-2"
+            className="card bg-base-100 border border-gray-300 p-6"
             key={other.id}
           >
             <p className="text-red-600 font-semibold">{firstNews.category}</p>
             {other.title}
           </div>
+
         ))}
       </div>
     </div>
