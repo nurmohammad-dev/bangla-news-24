@@ -15,7 +15,7 @@ const Marquee = async () => {
   return (
     <div className="bg-red-700 text-white">
       <div className="flex max-w-7xl mx-auto">
-        <div className="bg-red-800 px-3 py-1 font-bold">সর্বশেষ</div>
+        <div className="bg-red-800 p-3 font-bold">সর্বশেষ</div>
         <MarqueeText className="py-1" direction="right" duration={10}>
           {headlines.map((h) => (
             <Link key={h.id} href={`/news/${h.id}`} className="flex gap-2 p-2">
