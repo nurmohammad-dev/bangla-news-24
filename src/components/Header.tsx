@@ -1,5 +1,6 @@
 import Image from "next/image";
 import NavLinks from "./NavLinks";
+import UserInfo from "./UserInfo";
 
 const Header = () => {
   const date = new Date().toLocaleDateString("bn-BD", {
@@ -8,7 +9,7 @@ const Header = () => {
 
   return (
     <header className="relative w-full">
-      <div className="relative mx-auto max-w-7xl px-4 py-4">
+      <div className="relative mx-auto max-w-7xl px-4 py-4 mb-4">
 
         {/* Logo + Title */}
         <div className="flex flex-col items-center justify-center gap-1 sm:flex-row sm:gap-2">
@@ -31,19 +32,11 @@ const Header = () => {
           </div>
         </div>
 
-        {/* Right Side Buttons */}
-        <div className="absolute right-4 top-4 flex items-center gap-3">
-          <button className="btn btn-ghost text-neutral-700 hover:text-red-700">
-            সাইন ইন
-          </button>
-
-          <button className="btn bg-red-700 px-3 py-1.5 font-semibold text-white hover:bg-red-800">
-            সাইন আপ
-          </button>
-        </div>
+        <UserInfo/>
 
         <NavLinks />
       </div>
+
     </header>
   );
 };
