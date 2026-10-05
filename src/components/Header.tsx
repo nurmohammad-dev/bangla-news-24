@@ -7,7 +7,7 @@ const Header = () => {
   });
 
   return (
-    <header className="relative w-full border-b">
+    <header className="relative w-full">
       <div className="relative mx-auto max-w-7xl px-4 py-4">
 
         {/* Logo + Title */}
