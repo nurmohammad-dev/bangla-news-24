@@ -8,19 +8,37 @@ const SignUpPage = () => {
   const handleSubmit = async (e: React.SubmitEvent<HTMLFormElement>) => {
     e.preventDefault();
     const formData = new FormData(e.target);
-    const user = Object.fromEntries(formData.entries()) as {name: string, image: string, email: string, password: string};
-    
-    const {data, error}= await authClient.signUp.email({
-        ...user,
-        callbackURL:"/"
-    })
-    if(data){
-        console.log(data);
-        redirect('/')
+    const user = Object.fromEntries(formData.entries()) as {
+      name: string;
+      image: string;
+      email: string;
+      password: string;
+    };
+
+    const { data, error } = await authClient.signUp.email({
+      ...user,
+      callbackURL: "/",
+    });
+    if (data) {
+      console.log(data);
+      redirect("/");
     }
-    if(error){
-        console.log(error)
+    if (error) {
+      console.log(error);
     }
+  };
+
+  const handleGoogleSignUp = async () => {
+    await authClient.signIn.social({
+      provider: "google",
+    });
+
+  };
+
+  const handleGitHubSignUp = async () => {
+    await authClient.signIn.social({
+      provider: "github",
+    });
   };
 
   return (
@@ -60,6 +78,20 @@ const SignUpPage = () => {
           </button>
         </fieldset>
       </form>
+
+      <button
+        onClick={handleGoogleSignUp}
+        className="btn text-white bg-blue-500 mt-4"
+      >
+        Sign in with Google
+      </button>
+
+      <button
+        onClick={handleGitHubSignUp}
+        className="btn text-white bg-green-800 mt-2"
+      >
+        Sign in with GitHub
+      </button>
     </div>
   );
 };
