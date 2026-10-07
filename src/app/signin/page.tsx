@@ -24,9 +24,18 @@ const SignInPage = () => {
     }
 
     if(error){
-        toast.error(error.message)
+        toast.error(error.message ?? "সাইন ইন ব্যর্থ হয়েছে!")
         console.log(error);
     }
+
+  };
+
+  const handleGoogleSignIn = async () => {
+    const data = await authClient.signIn.social({
+      provider: "google",
+    });
+
+    console.log(data)
 
   };
 
@@ -45,8 +54,9 @@ const SignInPage = () => {
           <button type="submit" className="btn text-white bg-red-700 mt-4">সাইন ইন করুন</button>
         </fieldset>
       </form>
+      <button onClick={handleGoogleSignIn} className="btn text-white bg-blue-500 mt-4">Sign in with Google</button>
     </div>
   );
 };
 
-export default SignInPage
+export default SignInPage;
